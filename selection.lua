@@ -13,7 +13,7 @@ selection = {
 
 function selection.update(self)
   if btnp(5) then
-    current_state="new_game"
+    -- current_state="new_game"
   end
 end
 
