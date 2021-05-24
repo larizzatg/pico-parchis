@@ -1,21 +1,14 @@
 -- Manages the game states
 
--- Every state should have update and draw functions
-function _init()
+function create_state_machine()
   current_state="menu"
   game_states={
     menu=menu,
-    player_selection=player_selection,
-    new_game=new_game
+    player_selection=player_selection
   }
   state=game_states[current_state]
 end
 
-function _update()
+function set_state()
   state=game_states[current_state]
-  state:update()
-end
-
-function _draw()
-  print(state:draw())
 end
