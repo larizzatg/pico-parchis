@@ -5,7 +5,7 @@ __lua__
 --by larizzatg
 #include game_states.lua
 #include menu.lua
-#include selection.lua
+#include player_selection.lua
 #include dice.lua
 #include board.lua
 __gfx__

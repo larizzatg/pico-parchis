@@ -1,4 +1,4 @@
-selection = {
+player_selection = {
   ps={
     { n=1, x=46, h=1 },
     { n=2, x=74, h=2 }
@@ -11,13 +11,13 @@ selection = {
   }
 }
 
-function selection.update(self)
+function player_selection.update(self)
   if btnp(5) then
     -- current_state="new_game"
   end
 end
 
-function selection.draw(self)
+function player_selection.draw(self)
   cls(7)
   print("pico", 40, 19, 11)
   print("parchis", 59, 19, 12)
@@ -26,20 +26,13 @@ function selection.draw(self)
   self:draw_player_selection()
 end
 
-function selection.draw_house_selection(self)
+function player_selection.draw_house_selection(self)
   for color, house in pairs(self.house_selection) do 
     rectfill(house.x, house.y, house.w, house.h, house.c)
   end
 end
 
-----------------------
--- player selection --
-----------------------
-
-function selection.update_player_selection(self, player)
-end
-
-function selection.draw_player_selection(self)
+function player_selection.draw_player_selection(self)
   local p = 0
   for player in all(self.ps) do 
     local player_house = self.house_selection[player.h]

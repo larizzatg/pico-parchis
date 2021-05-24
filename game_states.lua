@@ -5,7 +5,7 @@ function _init()
   current_state="menu"
   game_states={
     menu=menu,
-    selection=selection,
+    player_selection=player_selection,
     new_game=new_game
   }
   state=game_states[current_state]

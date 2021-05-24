@@ -14,7 +14,7 @@ end
 
 function menu.start(self) 
   if btnp(5) then
-    current_state="selection"
+    current_state="player_selection"
   end
 end
 
