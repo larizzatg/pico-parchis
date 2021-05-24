@@ -3,8 +3,9 @@ version 32
 __lua__
 --parchis
 --by larizzatg
-
 #include game.lua
+#include menu.lua
+#include new_game.lua
 #include dice.lua
 #include board.lua
 __gfx__
