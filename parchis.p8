@@ -3,7 +3,7 @@ version 32
 __lua__
 --parchis
 --by larizzatg
-#include game.lua
+#include game_states.lua
 #include menu.lua
 #include selection.lua
 #include dice.lua
