@@ -14,7 +14,7 @@ end
 
 function menu.start(self) 
   if btnp(5) then
-    current_state="new_game"
+    current_state="selection"
   end
 end
 
@@ -37,7 +37,7 @@ function menu.draw(self)
   cls(7)
   draw_p(40, 16, self.colors[1])
   draw_p(58, 26, self.colors[2])
-  print("start new game ❎", 30, 80, 5)
+  print("new game ❎", 42, 80, 5)
 end
 
 function draw_p(x, y, color, s)
