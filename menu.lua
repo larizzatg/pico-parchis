@@ -8,7 +8,7 @@ menu={
 }
 
 function menu.update(self)
-  -- self:animate()
+  self:animate()
   self:start()
 end
 

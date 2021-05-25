@@ -1,41 +1,84 @@
-player_selection = {
-  ps={
-    { n=1, x=46, h=1 },
-    { n=2, x=74, h=2 }
-  },
-  house_selection={
-    { n="green", x=30, y=60, w=36, h=66, c=11 },
-    { n="blue", x=50, y=60, w=56, h=66, c=12 },
-    { n="orange", x=70, y=60, w=76, h=66, c=9 },
-    { n="red", x=90, y=60, w=96, h=66, c=8 },
-  }
+player_selection={
+  selected_player=1,
+  selected_house=1,
+  available_houses={}
 }
 
 function player_selection.update(self)
-  if btnp(5) then
-    -- current_state="new_game"
+  self:update_available_houses()
+  self:choose_house()
+end
+
+function player_selection.choose_house(self)
+  if btnp(1) and self.selected_house < 4 then 
+    self.selected_house += 1
   end
+
+  if btnp(0) and self.selected_house > 1 then 
+    self.selected_house -= 1
+  end
+
+  if btnp(5) then
+    players[self.selected_player].house = self.selected_house
+ 
+    self.selected_player+=1
+    self.selected_house=1
+  end
+end
+
+function player_selection.update_available_houses(self)
+  local available_houses={1, 2, 3, 4}
+  for i=1, #players do 
+    if players[i].house > 0 then
+      del(available_houses, players[i].house)
+    end
+  end
+  self.available_houses = available_houses
 end
 
 function player_selection.draw(self)
   cls(7)
   print("pico", 40, 19, 11)
   print("parchis", 59, 19, 12)
-  print("start game ❎", 40, 32, 5)
-  self:draw_house_selection()
-  self:draw_player_selection()
-end
+  line(40, 25, 85, 25, 9)
+  line(40, 26, 85, 26, 8)
 
-function player_selection.draw_house_selection(self)
-  for color, house in pairs(self.house_selection) do 
-    rectfill(house.x, house.y, house.w, house.h, house.c)
+
+  print("choose house (❎)", 32, 35, 5)
+
+  
+  -- print houses
+  local house_size=6
+  local house_ix=10
+  local house_y=60
+  local house_m=20
+  for i=1, #houses do
+    rectfill(house_ix+(house_m*i), house_y, house_ix+(house_m*i)+house_size, house_y+house_size, houses[i].c)
   end
-end
 
-function player_selection.draw_player_selection(self)
-  local p = 0
-  for player in all(self.ps) do 
-    local player_house = self.house_selection[player.h]
-      print("p"..player.n, player_house.x, player_house.y - 10, 5)
-  end  
+  if self.selected_player > 0 and self.selected_house > 0 then 
+      print(players[self.selected_player].name, house_ix+(house_m*self.selected_house), house_y-8, 5)
+  end
+
+  for i=1, #players do 
+    if players[i].house > 0 then 
+      print(players[i].name, house_ix+(house_m*players[i].house), house_y-8, houses[players[i].house].c)
+    end
+  end
+
+  
+  -- print("p1", house_ix+(house_m*1), house_y-8, 5)
+  -- print players
+  -- local x=48
+  -- for i=1, #players do
+  --   local y = 20+(i*15)
+  --   print(players[i].name, x, y, 5)
+  --   print("<", x+16, y, 5)
+  --   rect(x+20, y, x+24, y+4, 5)
+  --   print(">", x+26, y, 5)
+
+  --   if i == self.selected_player then
+  --     line(x-1, y+6, x+7, y+6, 10)
+  --   end
+  -- end
 end
