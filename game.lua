@@ -6,10 +6,10 @@ function _init()
 
   -- Create four houses
   houses={}
-  add(houses, { name="green", c=11 })
-  add(houses, { name="blue", c=12 })
-  add(houses, { name="orange", c=9 })
-  add(houses, { name="red", c=8 })
+  add(houses, { name="green", c=11, p=0 })
+  add(houses, { name="blue", c=12, p=0 })
+  add(houses, { name="orange", c=9, p=0 })
+  add(houses, { name="red", c=8, p=0 })
   -- Create state machine to game states
   create_state_machine()
 end

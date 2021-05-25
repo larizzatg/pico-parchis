@@ -1,7 +1,7 @@
 -- Manages the game states
 
 function create_state_machine()
-  current_state="menu"
+  current_state="player_selection"
   game_states={
     menu=menu,
     player_selection=player_selection
