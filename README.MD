@@ -35,3 +35,24 @@ fn: movimiento de la ficha, movimiento normal, movimiento meta
 
 ## Extra 
 animar los dados girandolos
+
+---
+# Game States
+### Welcome Menu
+Se presenta la pantalla de bienvenida y se comienza un nuevo juego
+### Player Selection
+Se presenta la seleccion de colores para los jugadores, pueden comenzar el juego
+
+### New Game
+Un juego desde cero, se ve el board dibujado, los jugadores tiran dados a ver cual le toca primero
+
+### Player Turn
+Al jugador correspondiente le tocara tirar el dado, y mover las fichas
+
+### Return to home
+Una casilla vuelve a la casa
+### Goal Reached
+Un jugador lleva a la meta una de sus casillas
+
+### Win
+Un jugador lleva a la meta todas sus casillas

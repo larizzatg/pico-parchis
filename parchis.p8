@@ -4,8 +4,10 @@ __lua__
 --parchis
 --by larizzatg
 #include game.lua
+#include game_states.lua
+#include player.lua
 #include menu.lua
-#include new_game.lua
+#include player_selection.lua
 #include dice.lua
 #include board.lua
 __gfx__

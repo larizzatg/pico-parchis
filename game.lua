@@ -1,20 +1,24 @@
--- Manages the game states
-
--- Every state should have update and draw functions
 function _init()
-  current_state="menu"
-  game_states={
-    menu=menu,
-    new_game=new_game
-  }
-  state=game_states[current_state]
+  -- Create two players
+  players={}
+  add(players, new_player(1))
+  add(players, new_player(2))
+
+  -- Create four houses
+  houses={}
+  add(houses, { name="green", c=11 })
+  add(houses, { name="blue", c=12 })
+  add(houses, { name="orange", c=9 })
+  add(houses, { name="red", c=8 })
+  -- Create state machine to game states
+  create_state_machine()
 end
 
 function _update()
-  state=game_states[current_state]
+  set_state()
   state:update()
 end
 
 function _draw()
-  print(state:draw())
+  state:draw()
 end
